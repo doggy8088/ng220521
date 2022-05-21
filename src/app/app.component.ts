@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   keyword = 'Angular';
 
-  changeKeyword() {
-    this.keyword = 'Hello World';
+  doSearch(str: string) {
+    this.keyword = str;
   }
 }
