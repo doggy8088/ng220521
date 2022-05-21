@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     // }, 2000);
   }
 
-  changeTitle(event: any) {
+  changeTitle(event: PointerEvent) {
     console.log(event); // PointerEvent
     if (event.altKey) {
       this.sitename = 'The Will Will Web';
