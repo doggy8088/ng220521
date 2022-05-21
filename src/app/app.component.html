@@ -9,6 +9,10 @@
       <div id="ctl00_cphBody_PostList1_posts" class="posts">
 
         <!-- <pre>{{ data | json }}</pre> -->
+        <pre>{{ 123456798 | number }}</pre>
+        <pre>{{ 123456798 | currency:currencyCode:'symbol':'1.0-0' }}</pre>
+        <pre>NT${{ 123456798 | number }}</pre>
+        <pre>{{ 0.98 | percent }}</pre>
 
         <!-- Article START-->
         <article class="post" *ngFor="let item of data; let i=index" id="post{{i}}">
@@ -16,12 +20,12 @@
             <h2 class="post-title">
               <a
                 [href]="item.href"
-                >{{item.title}}</a
+                >{{item.title | uppercase}}</a
               >
             </h2>
             <div class="post-info clearfix">
               <span class="post-date"
-                ><i class="glyphicon glyphicon-calendar"></i>{{ item.date }}</span
+                ><i class="glyphicon glyphicon-calendar"></i>{{ item.date | date:'yyyy-MM-dd' }}</span
               >
               <span class="post-author"
                 ><i class="glyphicon glyphicon-user"></i

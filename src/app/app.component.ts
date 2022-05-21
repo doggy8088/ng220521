@@ -9,8 +9,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class AppComponent implements OnInit, OnDestroy {
   keyword = 'Angular';
   data: any[] = [];
+  currencyCode = 'TWD';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    setTimeout(() => {
+      this.currencyCode = 'JPY'
+    }, 2000);
+  }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
