@@ -44,7 +44,7 @@
             [style.font-size.px]="counter + 12"></h3>
       </div>
 
-      <div id="social-icons" class="pull-right social-icon">
+      <div id="social-icons" *ngIf="counter % 2 === 0" class="pull-right social-icon">
         <a
           href="https://www.facebook.com/will.fans"
           title="Will 保哥的技術交流中心"
