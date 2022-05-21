@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { DataService } from './data.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
@@ -11,7 +11,7 @@ export class AppComponent implements OnInit, OnDestroy {
   data: any[] = [];
   currencyCode = 'TWD';
 
-  constructor(private http: HttpClient) {
+  constructor(private datasvc: DataService) {
     setTimeout(() => {
       this.currencyCode = 'JPY'
     }, 2000);
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.http.get<any[]>('/api/articles.json').subscribe({
+    this.datasvc.loadPosts().subscribe({
       next: (result) => {
         this.data = result;
       }
