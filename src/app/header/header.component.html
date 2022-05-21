@@ -38,8 +38,10 @@
       />
 
       <div class="pull-left">
-        <h1><a href="http://blog.miniasp.com/">{{ sitename }}</a></h1>
-        <h3 [innerHTML]="subtitle"></h3>
+        <h1><a href="http://blog.miniasp.com/">{{ sitename }}</a> {{ counter }}</h1>
+        <h3 [innerHTML]="subtitle"
+            [class.highlight]="counter % 2 === 1"
+            [style.font-size.px]="counter + 12"></h3>
       </div>
 
       <div id="social-icons" class="pull-right social-icon">
