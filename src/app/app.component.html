@@ -13,6 +13,7 @@
         <pre>{{ 123456798 | currency:currencyCode:'symbol':'1.0-0' }}</pre>
         <pre>NT${{ 123456798 | number }}</pre>
         <pre>{{ 0.98 | percent }}</pre>
+        <pre>{{ 'A123456789' | mask:2 }}</pre>
 
         <!-- Article START-->
         <article class="post" *ngFor="let item of data; let i=index" id="post{{i}}">

@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MaskPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: string, len: number = 3): string {
+    return value.substring(0, len) + '...' + value.substring(10-len, 10);
   }
 
 }
