@@ -111,9 +111,5 @@
         }
       }
     }
-  },
-  "defaultProject": "ng220521",
-  "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
   }
 }
