@@ -8,58 +8,36 @@
       <div id="ctl00_cphBody_divError"></div>
       <div id="ctl00_cphBody_PostList1_posts" class="posts">
 
-        <pre>{{ data | json }}</pre>
+        <!-- <pre>{{ data | json }}</pre> -->
 
         <!-- Article START-->
-        <article class="post" id="post0">
+        <article class="post" *ngFor="let item of data; let i=index" id="post{{i}}">
           <header class="post-header">
             <h2 class="post-title">
               <a
-                href="http://blog.miniasp.com/post/2016/04/30/Visual-Studio-Code-from-Command-Prompt-notes.aspx"
-                >從命令提示字元中開啟 Visual Studio Code
-                如何避免顯示惱人的偵錯訊息</a
+                [href]="item.href"
+                >{{item.title}}</a
               >
             </h2>
             <div class="post-info clearfix">
               <span class="post-date"
-                ><i class="glyphicon glyphicon-calendar"></i>2016/04/30
-                18:05</span
+                ><i class="glyphicon glyphicon-calendar"></i>{{ item.date }}</span
               >
               <span class="post-author"
                 ><i class="glyphicon glyphicon-user"></i
                 ><a href="http://blog.miniasp.com/author/will.aspx"
-                  >Will 保哥</a
+                  >{{ item.author }}</a
                 ></span
               >
               <span class="post-category"
                 ><i class="glyphicon glyphicon-folder-close"></i
-                ><a href="http://blog.miniasp.com/category/Visual-Studio.aspx"
-                  >Visual Studio</a
+                ><a [href]="item['category-link']"
+                  >{{ item.category }}</a
                 ></span
               >
             </div>
           </header>
-          <section class="post-body text">
-            <p>
-              由於我的 Visual Studio Code
-              大部分時候都是在命令提示字元下啟動，所以只要用
-              <strong
-                ><font color="#ff0000" face="Consolas">code .</font></strong
-              >
-              就可以快速啟動 Visual Studio Code
-              並自動開啟目前所在資料夾。不過不知道從哪個版本開始，我在啟動
-              Visual Studio Code
-              之後，卻開始在原本所在的命令提示字元視窗中出現一堆惱人的偵錯訊息，本篇文章試圖解析這個現象，並提出解決辦法。
-            </p>
-            <p>
-              ...
-              <a
-                class="more"
-                href="http://blog.miniasp.com/post/2016/04/30/Visual-Studio-Code-from-Command-Prompt-notes.aspx#continue"
-                >繼續閱讀</a
-              >
-              ...
-            </p>
+          <section class="post-body text" [innerHTML]="item.summary">
           </section>
         </article>
 
