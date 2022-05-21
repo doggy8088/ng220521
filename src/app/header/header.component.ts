@@ -15,9 +15,16 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     // Hook method
-    setTimeout(() => {
+    // setTimeout(() => {
+    //   this.sitename = 'The Will Will Web';
+    // }, 2000);
+  }
+
+  changeTitle(event: any) {
+    console.log(event); // PointerEvent
+    if (event.altKey) {
       this.sitename = 'The Will Will Web';
-    }, 2000);
+    }
   }
 
 }
