@@ -16,7 +16,7 @@
         <pre>{{ 'A123456789' | mask:2 }}</pre>
 
         <!-- Article START-->
-        <article class="post" *ngFor="let item of data; let i=index" id="post{{i}}">
+        <article class="post" *ngFor="let item of (data$ | async); let i=index" id="post{{i}}">
           <header class="post-header">
             <h2 class="post-title">
               <a

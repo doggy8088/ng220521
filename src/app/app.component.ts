@@ -1,5 +1,6 @@
 import { DataService } from './data.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit, OnDestroy {
   keyword = 'Angular';
-  data: any[] = [];
   currencyCode = 'TWD';
+  data$: Observable<any[]> = of([]);
 
   constructor(private datasvc: DataService) {
     setTimeout(() => {
@@ -20,11 +21,12 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.datasvc.loadPosts().subscribe({
-      next: (result) => {
-        this.data = result;
-      }
-    })
+    this.data$ = this.datasvc.loadPosts();
+    // .subscribe({
+    //   next: (result) => {
+    //     this.data = result;
+    //   }
+    // })
   }
 
   ngOnDestroy(): void {
