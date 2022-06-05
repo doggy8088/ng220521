@@ -1,0 +1,25 @@
+<article class="post">
+  <header class="post-header">
+    <h2 class="post-title">
+      <a [href]="article.href">{{ article.title | uppercase }}</a>
+    </h2>
+    <div class="post-info clearfix">
+      <span class="post-date"
+        ><i class="glyphicon glyphicon-calendar"></i
+        >{{ article.date | date: "yyyy-MM-dd" }}</span
+      >
+      <span class="post-author"
+        ><i class="glyphicon glyphicon-user"></i
+        ><a href="http://blog.miniasp.com/author/will.aspx">{{
+          article.author
+        }}</a></span
+      >
+      <span class="post-category"
+        ><i class="glyphicon glyphicon-folder-close"></i
+        ><a [href]="article['category-link']">{{ article.category }}</a></span
+      >
+      <input type="button" value="刪除文章" (click)="deleteArticle(article.id)">
+    </div>
+  </header>
+  <section class="post-body text" [innerHTML]="article.summary"></section>
+</article>

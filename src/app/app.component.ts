@@ -38,4 +38,9 @@ export class AppComponent implements OnInit, OnDestroy {
   doSearch(tKeyword: HTMLInputElement, str: string) {
     this.keyword = tKeyword.value = str;
   }
+
+  doDelete(id: number) {
+    console.log(`您刪除了 ${id} 的文章!`);
+  }
+
 }
